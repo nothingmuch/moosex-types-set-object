@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 package MooseX::Types::Set::Object;
+use base qw(MooseX::Types::Base);
 
 use strict;
 use warnings;
