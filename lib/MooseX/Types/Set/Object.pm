@@ -14,11 +14,7 @@ use Scalar::Util ();
 use MooseX::Types;
 use MooseX::Types::Moose qw(Object ArrayRef);
 
-subtype "Set::Object",
-	as Object,
-	where { $_->isa("Set::Object") },
-	optimize_as \&optimized_check;
-
+class_type "Set::Object"; # FIXME parametrizable
 
 coerce "Set::Object",
 	from ArrayRef,
@@ -27,8 +23,6 @@ coerce "Set::Object",
 coerce ArrayRef,
 	from "Set::Object",
 	via { $_->members };
-
-sub optimized_check { Scalar::Util::blessed($_[0]) && $_[0]->isa("Set::Object") }
 
 __PACKAGE__
 

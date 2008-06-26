@@ -11,6 +11,7 @@ WriteMakefile(
 	SIGN         => 1,
 	PL_FILES     => { },
 	PREREQ_PM    => {
+		'Moose'           => '0.50', # class_type
 		'Set::Object'     => 0,
 		'MooseX::Types'   => 0,
 		'Test::use::ok'   => 0,
